@@ -1,0 +1,60 @@
+.matchCardContainer {
+  background-color: #333;
+  border-left: 10px solid rgb(33, 33, 226);
+  width: 600px;
+  padding: 20px;
+
+  display: flex;
+
+  .mvpContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100px;
+
+    h3 {
+      margin: 10px;
+    }
+    
+    img {
+      border-radius: 999px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .playersContainer {
+    flex: 1;
+    display: flex;
+
+    > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .summonerName {
+          font-weight: 500;
+        }
+
+        .kda {
+          color: #999;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+          border-radius: 999px;
+        }
+      }
+    }
+  }
+}

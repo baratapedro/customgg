@@ -1,0 +1,48 @@
+.ranking_container {
+  color: #fff;
+
+  h2 {
+    text-align: center;
+  }
+
+  .playerTag {
+    width: 180px;
+  }
+
+  .playerImg {
+    position: relative;
+
+    .fire {
+      position: absolute;
+      right: -5px;
+      bottom: -5px;
+      width: 22px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    li {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 99999px;
+      }
+
+      .most_played_champs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+}
+

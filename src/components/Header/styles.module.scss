@@ -1,0 +1,31 @@
+.headerContainer {
+  border-bottom: 1px solid #404040;;
+
+  > div {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+
+    ul {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      li {
+        list-style: none;
+        font-weight: bold;
+
+        a {
+          text-decoration: none;
+          color: #ccc;
+
+          &:hover {
+            color: #e1e1e1;
+            transition: all .3s;
+          }
+        }
+      }
+    }
+  }
+}
