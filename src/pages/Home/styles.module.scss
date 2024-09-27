@@ -1,11 +1,14 @@
 .ranking_container {
   color: #fff;
+  padding: 20px;
+  max-width: 100%;
 
   .title_container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+
     h2 {
       text-align: center;
     }
@@ -13,21 +16,6 @@
     img {
       width: 36px;
       cursor: pointer;
-    }
-  }
-
-  .playerTag {
-    width: 180px;
-  }
-
-  .playerImg {
-    position: relative;
-
-    .fire {
-      position: absolute;
-      right: -5px;
-      bottom: -5px;
-      width: 22px;
     }
   }
 
@@ -42,11 +30,31 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      
+      width: 100%;
+
       img {
         width: 40px;
         height: 40px;
         border-radius: 99999px;
+      }
+
+      .playerTag {
+        width: 180px;
+      }
+
+      progress {
+        min-width: 80px;
+      }
+
+      .playerImg {
+        position: relative;
+
+        .fire {
+          position: absolute;
+          right: -5px;
+          bottom: -5px;
+          width: 22px;
+        }
       }
 
       .most_played_champs {
@@ -58,3 +66,45 @@
   }
 }
 
+@media (max-width: 720px) {
+  .ranking_container {
+    padding: 0px;
+
+    ul {
+      li {
+        gap: 8px;
+        
+        img {
+          width: 20px;
+          height: 20px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+
+        .win_rate {
+          text-align: center;
+          width: 30px;
+        }
+
+        .playerTag {
+          min-width: 100px;
+          max-width: 100px;
+          word-break: break-all;
+        }
+
+        progress {
+          max-width: 80px;
+        }
+
+        .most_played_champs {
+          flex: 1;
+          justify-content: center;
+          gap: 2px;
+        }
+      }
+    }
+  }
+
+}

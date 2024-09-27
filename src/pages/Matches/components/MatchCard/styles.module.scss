@@ -2,7 +2,6 @@
   background-color: #333;
   border-left: 10px solid rgb(33, 33, 226);
   width: 600px;
-  padding: 20px;
 
   display: flex;
 
@@ -28,6 +27,7 @@
   .playersContainer {
     flex: 1;
     display: flex;
+    padding: 20px 0;
 
     > div {
       flex: 1;
@@ -55,6 +55,18 @@
           border-radius: 999px;
         }
       }
+    }
+  }
+
+  .arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 20px;
+
+    &:hover {
+      background-color: #444;
     }
   }
 }
