@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styles from "./styles.module.scss"
 
 export function Header() {
@@ -7,10 +8,10 @@ export function Header() {
         <nav>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/matches">Partidas</a>
+              <Link to="/matches">Partidas</Link>
             </li>
           </ul>
         </nav>
