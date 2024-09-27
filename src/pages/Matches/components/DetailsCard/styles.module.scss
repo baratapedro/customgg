@@ -1,0 +1,39 @@
+.detailsContainer {
+  background-color: #2a2a2a;
+  padding: 20px;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  visibility: hidden;
+
+  .teamStatus {
+    border-bottom: 1px solid #666;
+    font-weight: 700;
+    padding-bottom: 8px;
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.animation {
+  height: 560px;
+  visibility: visible;
+}
+
+@media (max-width: 720px) {
+  .animation {
+    height: 910px;
+    visibility: visible;
+  }
+
+  .detailsContainer {
+    ul {
+      gap: 20px;
+    }
+  }
+}

@@ -1,72 +1,110 @@
 .matchCardContainer {
-  background-color: #333;
-  border-left: 10px solid rgb(33, 33, 226);
-  width: 600px;
+  width: 100%;
+  max-width: 640px;
 
-  display: flex;
+  .matchContainer {
+    background-color: #333;
+    border-left: 10px solid rgb(33, 33, 226);
 
-  .mvpContainer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    width: 100px;
 
-    h3 {
-      margin: 10px;
-    }
-    
-    img {
-      border-radius: 999px;
-      width: 60px;
-      height: 60px;
-    }
-  }
-
-  .playersContainer {
-    flex: 1;
-    display: flex;
-    padding: 20px 0;
-
-    > div {
-      flex: 1;
+    .mvpContainer {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 4px;
+      padding: 0 20px;
+      width: 100px;
 
-      > div {
+      h3 {
+        margin: 10px;
+      }
+
+      img {
+        border-radius: 999px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .playersContainer {
+      flex: 1;
+      display: flex;
+      padding: 20px 8px;
+      gap: 8px;
+
+      >div {
+        flex: 1;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 8px;
+        gap: 4px;
 
-        .summonerName {
-          font-weight: 500;
-        }
+        >div {
+          display: flex;
+          align-items: center;
+          gap: 8px;
 
-        .kda {
-          color: #999;
-        }
+          .summonerName {
+            font-weight: 500;
+          }
 
-        img {
-          width: 20px;
-          height: 20px;
-          border-radius: 999px;
+          .kda {
+            color: #999;
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+          }
         }
       }
     }
+
+    .arrowContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 20px;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
   }
+}
 
-  .arrowContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 20px;
-
-    &:hover {
-      background-color: #444;
+@media (max-width: 720px) {
+  .matchCardContainer {
+    .matchContainer {
+      .mvpContainer {
+        padding: 0 4px;
+  
+        h3 {
+          font-size: 16px;
+        }
+  
+        img {
+          width: 36px;
+          height: 36px;
+        }
+  
+        >div {
+          font-size: 12px;
+        }
+      }
+  
+      .playersContainer {
+        div {
+          font-size: 12px;
+        }
+      }
+  
+      .arrowContainer {
+        padding: 6px;
+      }
     }
   }
 }

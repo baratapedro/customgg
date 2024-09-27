@@ -1,0 +1,95 @@
+.playerContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .leftContainer {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+
+    .summonerInfo {
+      flex: 1;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+
+      .champIcon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 9999px;
+      }
+
+      .summonerName {
+        flex: 1;
+      }
+
+      .spellsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .mainRune {
+        width: 20px;
+        border-radius: 9999px;
+      }
+    }
+
+    .goldAndFarm {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .build {
+    display: flex;
+    gap: 2px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .rightContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    .goldAndFarm {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .build {
+      display: flex;
+      gap: 2px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .playerContainer {
+    flex-direction: column;
+    gap: 4px;
+
+    .leftContainer {
+      width: 100%;
+    }
+  }
+}
