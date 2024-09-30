@@ -88,7 +88,7 @@ export function Home() {
                   </div>
                   <span className={styles.playerTag}>{player.playerTag}</span>
                   <progress value={player.wins} max={player.totalMatches} />
-                  <span className={styles.win_rate}>{player.wins}/{player.totalMatches} ({(player.wins / player.totalMatches * 100).toFixed(0)}%)</span>
+                  <span className={styles.win_rate}>{player.wins}/{player.totalMatches - player.wins}  ({(player.wins / player.totalMatches * 100).toFixed(0)}%)</span>
                   <div className={styles.most_played_champs}>
                     {
                       player.mostPlayedCharacters.map(champ => (
