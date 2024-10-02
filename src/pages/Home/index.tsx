@@ -77,7 +77,7 @@ export function Home() {
             {
               players.map((player, index) => (
                 <li>
-                  <span>{index + 1}</span>
+                  <span className={styles.position}>{index + 1}</span>
                   <div className={styles.playerImg}>
                     <img src={`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/profileicon/${player.profileIcon}.png`} alt="" />
                     {

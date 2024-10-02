@@ -1,0 +1,29 @@
+.banner {
+  position: relative;
+
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  height: 300px;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+  }
+
+  .playerInfo {
+    position: relative;
+    z-index: 2;
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 9999px;
+    }
+  }
+}
