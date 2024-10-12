@@ -1,38 +1,44 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './styles.module.scss'
 import { faCoins, faFistRaised } from '@fortawesome/free-solid-svg-icons'
+import { IParticipant } from '../..'
 
-export function Player() {
+interface IPlayerProps {
+  member: IParticipant
+}
+
+export function Player({ member }: IPlayerProps) {
   return (
     <li className={styles.playerContainer}>
       <div className={styles.leftContainer}>
         <div className={styles.summonerInfo}>
-          <img className={styles.champIcon} src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/champion/Shaco.png" alt="" />
+          <img className={styles.champIcon} src={member.champion.image.full} alt="" />
           <div className={styles.spellsContainer}>
-            <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/SummonerFlash.png" alt="" />
-            <img src="http://ddragon.leagueoflegends.com/cdn/10.23.1/img/spell/SummonerDot.png" alt="" />
+            <img src={member.player_spells.primary.image} alt="" />
+            <img src={member.player_spells.secondary.image} alt="" />
           </div>
-          <img className={styles.mainRune} src="http://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png" alt="" />
-          <span className={styles.summonerName}>pdr</span>
+          <img className={styles.mainRune} src={member.runes.primary.icon} alt="" />
+          <span className={styles.summonerName}>{member.playerTag}</span>
         </div>
-        <span>99/0/99</span>
+        <span className={styles.kda}>
+          {member.stats.kills}/{member.stats.deaths}/{member.stats.assists}
+        </span>
       </div>
       <div className={styles.rightContainer}>
         <div className={styles.goldAndFarm}>
-          53k
+          <span>{member.stats.totalDamageDealtToChampions}</span>
           <FontAwesomeIcon icon={faFistRaised} />
         </div>
         <div className={styles.goldAndFarm}>
-          53k (222)
+          <span>{member.stats.goldEarned} ({member.stats.totalMinionsKilled})</span>
           <FontAwesomeIcon icon={faCoins} />
         </div>
         <div className={styles.build}>
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
-          <img src="http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/3003.png" alt="" />
+          {
+            member.items.map(item => {
+              return <img src={item} alt="" />
+            })
+          }
         </div>
       </div>
     </li>

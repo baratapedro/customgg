@@ -6,11 +6,17 @@
   .leftContainer {
     display: flex;
     align-items: center;
-    flex: 1;
     gap: 20px;
+    max-width: 370px;
+    width: 100%;
+
+    .kda {
+      width: 50px;
+    }
 
     .summonerInfo {
       flex: 1;
+      width: 280px;
       display: flex;
       gap: 4px;
       align-items: center;
@@ -69,6 +75,16 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      width: 120px;
+
+      &:first-child {
+        width: 80px;
+      }
+
+      > span {
+        flex: 1;
+        text-align: right;
+      }
     }
 
     .build {

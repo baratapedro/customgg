@@ -3,10 +3,39 @@ import toby from "../../../../assets/toby.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { DetailsCard } from "../DetailsCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { IMatch, IParticipant } from "../..";
 
-export function MatchCard() {
+interface IMatchCardProps {
+  match: IMatch
+}
+
+export function MatchCard({ match }: IMatchCardProps) {
   const [isOpenDetails, setIsOpenDetails] = useState(false)
+  const [blueTeam, setBlueTeam] = useState<IParticipant[]>([])
+  const [redTeam, setRedTeam] = useState<IParticipant[]>([])
+
+  useEffect(() => {
+    if (!match) return
+
+    const blue: IParticipant[] = []
+    const red: IParticipant[] = []
+    match.participants.map(participant => {
+      if (participant.teamSide === "blue") {
+        blue.push(participant)
+      }
+
+      if (participant.teamSide === "red") {
+        red.push(participant)
+      }
+    })
+
+    setBlueTeam(blue)
+    setRedTeam(red)
+  }, [match])
+
+  if(!blueTeam || !redTeam) return null
+
   return (
     <div className={styles.matchCardContainer}>
       <div className={styles.matchContainer}>
@@ -17,59 +46,31 @@ export function MatchCard() {
         </div>
         <div className={styles.playersContainer}>
           <div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
+            {
+              blueTeam.map(member => (
+                <div>
+                  <img src={member.champion.image.full} alt="" />
+                  <div className={styles.summonerName}>{member.playerTag}</div>
+                  <div className={styles.kda}>
+                    {member.stats.kills}/{member.stats.deaths}/{member.stats.assists}
+                  </div>
+                </div>
+              ))
+            }
           </div>
 
           <div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
-            <div>
-              <img src={toby} alt="" />
-              <div className={styles.summonerName}>osmumu</div>
-              <div className={styles.kda}>99/0/99</div>
-            </div>
+            {
+              redTeam.map(member => (
+                <div>
+                  <img src={member.champion.image.full} alt="" />
+                  <div className={styles.summonerName}>{member.playerTag}</div>
+                  <div className={styles.kda}>
+                    {member.stats.kills}/{member.stats.deaths}/{member.stats.assists}
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
         <div className={styles.arrowContainer} onClick={() => setIsOpenDetails(!isOpenDetails)}>
@@ -77,7 +78,7 @@ export function MatchCard() {
         </div>
       </div>
       {
-        <DetailsCard isOpenDetails={isOpenDetails}/>
+        <DetailsCard isOpenDetails={isOpenDetails} redTeam={redTeam} blueTeam={blueTeam} />
       }
     </div>
   )
